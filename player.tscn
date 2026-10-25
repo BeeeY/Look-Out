@@ -15,7 +15,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufewp"]
-size = Vector2(130, 130)
+size = Vector2(120, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glgfw"]
+size = Vector2(140, 140)
 
 [node name="Ant" type="CharacterBody2D" unique_id=1815601165]
 script = ExtResource("1_onrkg")
@@ -25,3 +28,12 @@ sprite_frames = SubResource("SpriteFrames_glgfw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=323774554]
 shape = SubResource("RectangleShape2D_ufewp")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=134686798]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1967920318]
+shape = SubResource("RectangleShape2D_glgfw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

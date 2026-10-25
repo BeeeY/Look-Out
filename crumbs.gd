@@ -1,8 +1,13 @@
 extends CharacterBody2D
 
+var fall_speed = 250
 
-const speed = 100
-
+func _ready():
+	add_to_group("Crumbs")
 
 func _physics_process(delta: float) -> void:
-	move_and_collide(Vector2(0, speed*delta))
+	velocity.y = fall_speed
+	move_and_slide()
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

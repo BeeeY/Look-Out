@@ -3,15 +3,56 @@
 [ext_resource type="Script" uid="uid://ddoob5uj82wk2" path="res://crumbs.gd" id="1_8wtoh"]
 [ext_resource type="Texture2D" uid="uid://dpjbn47dx0eq6" path="res://icon.svg" id="1_nb0pw"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_glgfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nb0pw")
+}],
+"loop": 1,
+"name": &"Food1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nb0pw")
+}],
+"loop": 1,
+"name": &"Food2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nb0pw")
+}],
+"loop": 1,
+"name": &"Food3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nb0pw")
+}],
+"loop": 1,
+"name": &"WarningCrumb",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glgfw"]
 size = Vector2(70, 70)
 
 [node name="Crumbs" type="CharacterBody2D" unique_id=637824028]
+collision_layer = 2
 script = ExtResource("1_8wtoh")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1665320881]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2089020292]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_nb0pw")
+sprite_frames = SubResource("SpriteFrames_glgfw")
+animation = &"Food1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=793003060]
 shape = SubResource("RectangleShape2D_glgfw")
+
+[node name="Timer" type="Timer" parent="." unique_id=2068506117]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

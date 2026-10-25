@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+signal point
+signal game_over
 
-const SPEED = 300.0
+const SPEED = 400
 const JUMP_VELOCITY = -400.0
 
 
@@ -21,5 +23,18 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	position.x = clamp(position.x, 70, 930)
 
 	move_and_slide()
+	
+func spawn(pos):
+	position = pos
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Crumbs"):
+		point.emit()
+		body.queue_free()
+		
+	if body.is_in_group("Feet"):
+		game_over.emit()

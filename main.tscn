@@ -1,16 +1,23 @@
 [gd_scene format=3 uid="uid://bvs1qkiylwyoj"]
 
 [ext_resource type="Texture2D" uid="uid://dpjbn47dx0eq6" path="res://icon.svg" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://b74l5rwj1i5x1" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c3igb6pinlek" path="res://player.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://eagtbtn1u6wt" path="res://crumb_spawner.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bpq4qpu0covoa" path="res://hud.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c436bxdwn6rbh" path="res://crumbs.tscn" id="6_7mycd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glgfw"]
 size = Vector2(1300, 50)
 
 [node name="Main" type="Node2D" unique_id=439673633]
+script = ExtResource("1_lquwl")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1657254452]
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1439968481]
 position = Vector2(506, 974)
+collision_layer = 3
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1509050408]
@@ -20,8 +27,27 @@ texture = ExtResource("1_0xm2m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=298150895]
 shape = SubResource("RectangleShape2D_glgfw")
 
-[node name="Player" parent="." unique_id=1815601165 instance=ExtResource("2_h2yge")]
+[node name="Player" parent="." unique_id=1815601165 groups=["player"] instance=ExtResource("2_h2yge")]
 position = Vector2(585, 403)
+metadata/_edit_group_ = true
 
 [node name="CrumbSpawner" parent="." unique_id=160446662 instance=ExtResource("3_h2yge")]
 position = Vector2(506, 108)
+metadata/_edit_group_ = true
+
+[node name="Hud" parent="." unique_id=996519723 instance=ExtResource("4_1bvp3")]
+metadata/_edit_group_ = true
+
+[node name="Crumbs" parent="." unique_id=637824028 instance=ExtResource("6_7mycd")]
+position = Vector2(493, -33)
+
+[node name="Start" type="Marker2D" parent="." unique_id=1073154007]
+position = Vector2(533, 866)
+
+[node name="CrumbTimer" type="Timer" parent="." unique_id=594028846]
+wait_time = 4.0
+
+[connection signal="game_over" from="Player" to="Hud" method="_on_player_game_over"]
+[connection signal="point" from="Player" to="." method="_on_player_point"]
+[connection signal="start_game" from="Hud" to="." method="_on_hud_start_game"]
+[connection signal="timeout" from="CrumbTimer" to="." method="_on_timer_timeout"]

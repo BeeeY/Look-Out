@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glgfw"]
 size = Vector2(300, 80)
 
-[node name="Feet" type="Node2D" unique_id=945517942]
+[node name="Feet" type="CharacterBody2D" unique_id=1437284832]
 position = Vector2(159, -41)
+collision_layer = 2
 script = ExtResource("1_t0unw")
 metadata/_edit_group_ = true
 
@@ -15,7 +16,5 @@ metadata/_edit_group_ = true
 scale = Vector2(2.5, 0.75)
 texture = ExtResource("2_jf4qj")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1563569293]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1443559315]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1443559315]
 shape = SubResource("RectangleShape2D_glgfw")

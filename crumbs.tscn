@@ -52,7 +52,3 @@ animation = &"Food1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=793003060]
 shape = SubResource("RectangleShape2D_glgfw")
-
-[node name="Timer" type="Timer" parent="." unique_id=2068506117]
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

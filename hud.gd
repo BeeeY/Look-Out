@@ -2,7 +2,7 @@ extends Node2D
 
 signal start_game
 
-var score = 0
+var Score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,11 +24,13 @@ func _on_start_pressed() -> void:
 func _on_player_game_over() -> void:
 	$Score.hide()
 	$GameOver.show()
-	$GameOverScore.text = "Crumbs : " + str(score)
+	$GameOverScore.text = "Crumbs : " + str(Score)
 	$GameOverScore.show()
-	score = 0
+	Score = 0
 	$Start.text = "Try Again?"
 	$Start.show()
 	
+	
 func update_score(score):
 	$Score.text = str(score)
+	Score = score

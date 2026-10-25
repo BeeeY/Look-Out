@@ -43,6 +43,7 @@ metadata/_edit_group_ = true
 wait_time = 4.0
 
 [node name="FootTimer" type="Timer" parent="." unique_id=848030559]
+wait_time = 5.0
 
 [connection signal="game_over" from="Player" to="Hud" method="_on_player_game_over"]
 [connection signal="point" from="Player" to="." method="_on_player_point"]

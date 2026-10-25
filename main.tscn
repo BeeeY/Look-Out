@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dpjbn47dx0eq6" path="res://icon.svg" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c3igb6pinlek" path="res://player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://eagtbtn1u6wt" path="res://crumb_spawner.tscn" id="3_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glgfw"]
 size = Vector2(1300, 50)
@@ -21,3 +22,6 @@ shape = SubResource("RectangleShape2D_glgfw")
 
 [node name="Player" parent="." unique_id=1815601165 instance=ExtResource("2_h2yge")]
 position = Vector2(585, 403)
+
+[node name="CrumbSpawner" parent="." unique_id=160446662 instance=ExtResource("3_h2yge")]
+position = Vector2(506, 108)

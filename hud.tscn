@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bpq4qpu0covoa"]
+
+[ext_resource type="Script" uid="uid://dexmovf06yks6" path="res://hud.gd" id="1_64ctp"]
+[ext_resource type="Theme" uid="uid://cb0eanfay5lgv" path="res://new_theme.tres" id="2_8sq4i"]
+
+[node name="Hud" type="Node2D" unique_id=996519723]
+script = ExtResource("1_64ctp")
+
+[node name="Score" type="Label" parent="." unique_id=1316239618]
+offset_left = 456.0
+offset_top = 51.0
+offset_right = 466.0
+offset_bottom = 74.0
+theme = ExtResource("2_8sq4i")
+text = "0"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="." unique_id=299679980]
+offset_left = 186.0
+offset_top = 340.0
+offset_right = 786.0
+offset_bottom = 448.0
+theme = ExtResource("2_8sq4i")
+text = "Don't Step On Me!"
+horizontal_alignment = 1
+
+[node name="GameOver" type="Label" parent="." unique_id=1057745601]
+offset_left = 332.0
+offset_top = 338.0
+offset_right = 659.0
+offset_bottom = 446.0
+theme = ExtResource("2_8sq4i")
+text = "Squished!"
+horizontal_alignment = 1
+
+[node name="GameOverScore" type="Label" parent="." unique_id=628951405]
+offset_left = 296.0
+offset_top = 425.0
+offset_right = 656.0
+offset_bottom = 533.0
+theme = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 70
+text = "Crumbs : 0"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="." unique_id=557114002]
+offset_left = 398.0
+offset_top = 525.0
+offset_right = 575.0
+offset_bottom = 631.0
+theme = ExtResource("2_8sq4i")
+text = "Start"

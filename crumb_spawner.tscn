@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://eagtbtn1u6wt"]
+
+[ext_resource type="Script" uid="uid://l8s8vn2uqilf" path="res://crumb_spawner.gd" id="1_b4m0k"]
+
+[node name="CrumbSpawner" type="Node2D" unique_id=160446662]
+script = ExtResource("1_b4m0k")
+
+[node name="Timer" type="Timer" parent="." unique_id=763548359]
+wait_time = 2.0
+
+[node name="Spawner" type="Node2D" parent="." unique_id=113415206]
+
+[node name="Marker2D" type="Marker2D" parent="Spawner" unique_id=1478899492]
+position = Vector2(503, 8)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

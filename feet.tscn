@@ -1,20 +1,51 @@
 [gd_scene format=3 uid="uid://dva6uswe6wemq"]
 
 [ext_resource type="Script" uid="uid://cyqexevdh66h2" path="res://feet.gd" id="1_t0unw"]
-[ext_resource type="Texture2D" uid="uid://dpjbn47dx0eq6" path="res://icon.svg" id="2_jf4qj"]
+[ext_resource type="Texture2D" uid="uid://ctyd8afph008l" path="res://assets/Feet but Better4.png" id="2_mm8dw"]
+[ext_resource type="Texture2D" uid="uid://cd4e8lbpb8xfj" path="res://assets/Feet but Better2.png" id="3_vcyu5"]
+[ext_resource type="Texture2D" uid="uid://degp562hunj5h" path="res://assets/Feet but Better1.png" id="4_e4el6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glgfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mm8dw")
+}],
+"loop": 1,
+"name": &"Foot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vcyu5")
+}],
+"loop": 1,
+"name": &"Slide Warning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e4el6")
+}],
+"loop": 1,
+"name": &"Stomp Warning",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glgfw"]
-size = Vector2(300, 80)
+size = Vector2(70, 20)
 
 [node name="Feet" type="CharacterBody2D" unique_id=1437284832]
-position = Vector2(159, -41)
 collision_layer = 2
 script = ExtResource("1_t0unw")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869574075]
-scale = Vector2(2.5, 0.75)
-texture = ExtResource("2_jf4qj")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=313532384]
+position = Vector2(0, 30)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_glgfw")
+animation = &"Slide Warning"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1443559315]
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_glgfw")

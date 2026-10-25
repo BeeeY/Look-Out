@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 signal start_game
 
@@ -26,6 +26,7 @@ func _on_player_game_over() -> void:
 	$GameOver.show()
 	$GameOverScore.text = "Crumbs : " + str(Score)
 	$GameOverScore.show()
+	$TitleBackground.show()
 	Score = 0
 	$Start.text = "Try Again?"
 	$Start.show()

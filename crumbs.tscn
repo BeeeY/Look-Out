@@ -1,40 +1,34 @@
 [gd_scene format=3 uid="uid://c436bxdwn6rbh"]
 
 [ext_resource type="Script" uid="uid://ddoob5uj82wk2" path="res://crumbs.gd" id="1_8wtoh"]
-[ext_resource type="Texture2D" uid="uid://dpjbn47dx0eq6" path="res://icon.svg" id="1_nb0pw"]
+[ext_resource type="Texture2D" uid="uid://benit2g6413p0" path="res://assets/Half Eaten Fruits2.png" id="2_31r6n"]
+[ext_resource type="Texture2D" uid="uid://uqi575gpgq50" path="res://assets/Half Eaten Fruits3.png" id="3_xk4ai"]
+[ext_resource type="Texture2D" uid="uid://dh7j8ydmbl7re" path="res://assets/Half Eaten Fruits1.png" id="4_ljjlx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_glgfw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nb0pw")
+"texture": ExtResource("2_31r6n")
 }],
 "loop": 1,
-"name": &"Food1",
+"name": &"Apple",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nb0pw")
+"texture": ExtResource("3_xk4ai")
 }],
 "loop": 1,
-"name": &"Food2",
+"name": &"Banana",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nb0pw")
+"texture": ExtResource("4_ljjlx")
 }],
 "loop": 1,
-"name": &"Food3",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_nb0pw")
-}],
-"loop": 1,
-"name": &"WarningCrumb",
+"name": &"Watermelon",
 "speed": 5.0
 }]
 
@@ -46,9 +40,9 @@ collision_layer = 2
 script = ExtResource("1_8wtoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2089020292]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_glgfw")
-animation = &"Food1"
+animation = &"Apple"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=793003060]
 shape = SubResource("RectangleShape2D_glgfw")

@@ -1,39 +1,48 @@
 [gd_scene format=3 uid="uid://c3igb6pinlek"]
 
-[ext_resource type="Texture2D" uid="uid://dpjbn47dx0eq6" path="res://icon.svg" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bv2trhjj6oeuo" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dan482s83uqdx" path="res://assets/Ant1.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bv2f3uw8x23ig" path="res://assets/Ant2.png" id="3_hqtel"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_glgfw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4flbx")
+"texture": ExtResource("2_i3pqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hqtel")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufewp"]
-size = Vector2(120, 130)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glgfw"]
+radius = 29.0
+height = 132.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_glgfw"]
-size = Vector2(140, 140)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufewp"]
+radius = 34.0
+height = 146.0
 
 [node name="Ant" type="CharacterBody2D" unique_id=1815601165]
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1820169917]
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_glgfw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=323774554]
-shape = SubResource("RectangleShape2D_ufewp")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_glgfw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=134686798]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1967920318]
-shape = SubResource("RectangleShape2D_glgfw")
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ufewp")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

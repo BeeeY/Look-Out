@@ -3,6 +3,7 @@ extends Node2D
 signal game_over
 
 var score = 0
+var slide
 
 const CrumbScene = preload("res://crumbs.tscn")
 const FootScene = preload("res://feet.tscn")
@@ -24,6 +25,13 @@ func _on_hud_start_game() -> void:
 	$Crumbs.set_physics_process(true)
 	$CrumbTimer.start()
 	$FootTimer.start()
+	
+
+func _on_player_game_over() -> void:
+	$CrumbTimer.stop()
+	$FootTimer.stop()
+	get_tree().call_group("Feet", "queue_free")
+	get_tree().call_group("Crumbs", "queue_free")
 
 
 func _on_player_point() -> void:
@@ -45,16 +53,23 @@ func _on_foot_timer_timeout() -> void:
 	var foot = FootScene.instantiate()
 	
 	if stompslide == 0:
-		foot.position = Vector2(randf_range(100,900), -40)
-	elif stompslide == 1:
-		foot.position = Vector2(randf_range(100,900), -40)
-		
+		foot.position = Vector2(randf_range(100,900), -950)
+	else:
+		slide = randi_range(0,1)
+		if slide == 0:
+			foot.position = Vector2(100, -950)
+		else:
+			foot.position = Vector2(900, -950)
+
 	add_child(foot)
 	
 	if stompslide == 0:
 		foot.stomp()
-	elif stompslide == 1:
-		foot.slide()
+	else:
+		if slide == 0:
+			foot.slide(0)
+		else:
+			foot.slide(1)
 	
 	if $FootTimer.wait_time > 1.50:
 		$FootTimer.wait_time -= 0.05

@@ -2,15 +2,85 @@
 
 [ext_resource type="Script" uid="uid://dexmovf06yks6" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="Theme" uid="uid://cb0eanfay5lgv" path="res://new_theme.tres" id="2_8sq4i"]
-[ext_resource type="Texture2D" uid="uid://dpjbn47dx0eq6" path="res://icon.svg" id="2_640wx"]
+[ext_resource type="Texture2D" uid="uid://mx7j07mydmyx" path="res://assets/Look Out Backgrounds1.png" id="2_640wx"]
 
-[node name="Hud" type="Node2D" unique_id=996519723]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2258"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_640wx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sq4i"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xsix"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rftc2"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="Hud" type="CanvasLayer" unique_id=1639212012]
 script = ExtResource("1_64ctp")
 
 [node name="TitleBackground" type="Sprite2D" parent="." unique_id=1617295312]
-position = Vector2(518, 499.49994)
-scale = Vector2(8.046875, 7.8203115)
+position = Vector2(500, 500)
+scale = Vector2(2, 2)
 texture = ExtResource("2_640wx")
+metadata/_edit_lock_ = true
 
 [node name="Score" type="Label" parent="." unique_id=1316239618]
 offset_left = 484.0
@@ -22,40 +92,45 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Title" type="Label" parent="." unique_id=299679980]
-offset_left = 186.0
-offset_top = 340.0
-offset_right = 786.0
-offset_bottom = 448.0
+offset_left = 168.0
+offset_top = 410.0
+offset_right = 864.0
+offset_bottom = 602.0
 theme = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 200
 text = "Look Out!"
 horizontal_alignment = 1
 
 [node name="GameOver" type="Label" parent="." unique_id=1057745601]
-offset_left = 237.0
-offset_top = 325.0
-offset_right = 727.0
-offset_bottom = 487.0
+offset_left = 231.0
+offset_top = 406.0
+offset_right = 795.0
+offset_bottom = 568.0
 theme = ExtResource("2_8sq4i")
 text = "Squished!"
 horizontal_alignment = 1
 
 [node name="GameOverScore" type="Label" parent="." unique_id=628951405]
-offset_left = 296.0
-offset_top = 456.0
-offset_right = 656.0
-offset_bottom = 564.0
+offset_left = 249.0
+offset_top = 523.0
+offset_right = 769.0
+offset_bottom = 631.0
 theme = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 70
 text = "Crumbs : 0"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="." unique_id=557114002]
-offset_left = 401.0
-offset_top = 528.0
-offset_right = 578.0
-offset_bottom = 634.0
+offset_left = 187.0
+offset_top = 553.0
+offset_right = 842.0
+offset_bottom = 714.0
 theme = ExtResource("2_8sq4i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a2258")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_640wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8sq4i")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1xsix")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rftc2")
 text = "Start"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

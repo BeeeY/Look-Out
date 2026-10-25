@@ -92,39 +92,40 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Title" type="Label" parent="." unique_id=299679980]
-offset_left = 168.0
-offset_top = 410.0
-offset_right = 864.0
-offset_bottom = 602.0
+offset_left = 90.0
+offset_top = 423.0
+offset_right = 960.0
+offset_bottom = 663.0
 theme = ExtResource("2_8sq4i")
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 250
 text = "Look Out!"
 horizontal_alignment = 1
 
 [node name="GameOver" type="Label" parent="." unique_id=1057745601]
-offset_left = 231.0
-offset_top = 406.0
-offset_right = 795.0
-offset_bottom = 568.0
+offset_left = 141.0
+offset_top = 438.0
+offset_right = 893.0
+offset_bottom = 630.0
 theme = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 200
 text = "Squished!"
 horizontal_alignment = 1
 
 [node name="GameOverScore" type="Label" parent="." unique_id=628951405]
-offset_left = 249.0
-offset_top = 523.0
-offset_right = 769.0
-offset_bottom = 631.0
+offset_left = 245.0
+offset_top = 582.0
+offset_right = 765.0
+offset_bottom = 690.0
 theme = ExtResource("2_8sq4i")
 theme_override_font_sizes/font_size = 70
 text = "Crumbs : 0"
 horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="." unique_id=557114002]
-offset_left = 187.0
-offset_top = 553.0
-offset_right = 842.0
-offset_bottom = 714.0
+offset_left = 191.0
+offset_top = 616.0
+offset_right = 846.0
+offset_bottom = 777.0
 theme = ExtResource("2_8sq4i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_a2258")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_640wx")

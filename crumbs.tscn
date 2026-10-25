@@ -40,9 +40,14 @@ collision_layer = 2
 script = ExtResource("1_8wtoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2089020292]
+visible = false
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_glgfw")
 animation = &"Apple"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=793003060]
 shape = SubResource("RectangleShape2D_glgfw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=178267016]
+scale = Vector2(6, 6)
+texture = ExtResource("2_31r6n")

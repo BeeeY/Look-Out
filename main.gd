@@ -5,6 +5,7 @@ signal game_over
 var score = 0
 var slide
 
+
 const CrumbScene = preload("res://crumbs.tscn")
 const FootScene = preload("res://feet.tscn")
 

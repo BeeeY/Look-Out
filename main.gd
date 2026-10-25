@@ -5,6 +5,7 @@ signal game_over
 var score = 0
 
 const CrumbScene = preload("res://crumbs.tscn")
+const FootScene = preload("res://Feet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,8 +25,15 @@ func _on_player_point() -> void:
 	score += 1
 	$Hud.update_score(score)
 
-func _on_timer_timeout() -> void:
+func _on_crumb_timer_timeout() -> void:
 	var crumb = CrumbScene.instantiate()
+	crumb.position = Vector2(randf_range(50,950), -40)
+	add_child(crumb)
+	if $CrumbTimer.wait_time > 1.50:
+		$CrumbTimer.wait_time -= 0.05
+
+func _on_foot_timer_timeout() -> void:
+	var foot = CrumbScene.instantiate()
 	crumb.position = Vector2(randf_range(50,950), -40)
 	add_child(crumb)
 	if $CrumbTimer.wait_time > 1.50:
